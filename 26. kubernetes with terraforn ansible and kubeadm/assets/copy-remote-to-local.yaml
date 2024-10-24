@@ -1,0 +1,11 @@
+- hosts: all
+  name: fetch join token file
+  gather_facts: false
+  # become: yes
+  tasks:
+  - name: fetch join token file
+    ansible.builtin.fetch:
+      src: /home/ubuntu/join-command.sh
+      dest: ./join-command.sh
+      flat: yes                             # It will ignore the folder structure and copy to the given directory
+      validate_checksum: false
